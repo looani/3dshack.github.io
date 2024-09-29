@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재미있는 CSS</title>
+  <style>
+    /* 배경 그라데이션 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f06, #f9a, #f3d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 카드 스타일 */
+    .card {
+      background: white;
+      width: 300px;
+      height: 400px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+
+    .card:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* 애니메이션 효과 */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 카드 안 텍스트 */
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .content h1 {
+      font-size: 2rem;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .content p {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    /* 버튼 */
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #f06;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .button:hover {
+      background: #f36;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="content">
+      <h1>재미있는 CSS</h1>
+      <p>애니메이션과 다양한 효과로 꾸며진 카드입니다.</p>
+      <button class="button">눌러보세요!</button>
+    </div>
+  </div>
+</body>
+</html>
